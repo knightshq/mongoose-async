@@ -5,7 +5,7 @@ const nodemon = require('gulp-nodemon')
 
 //build to ./dist directory
 gulp.task('build:dev', () => {
-	return gulp.src('./index.js')
+	return gulp.src(['./index.js', './examples/*'])
 		.pipe(babel({
 			presets: ['es2017']
 		}))
@@ -15,7 +15,7 @@ gulp.task('build:dev', () => {
 //watch on changes and run build:dev
 gulp.task('watch', () => {
 	gulp.start('build:dev')
-	return watch('./index.js', () => {
+	return watch(['./index.js', './examples/*'], () => {
 		gulp.start('build:dev')
 	})
 })
