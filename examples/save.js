@@ -12,7 +12,7 @@ class Holiday {
 		this.kitty = kitty
 	}
 	async destinations () {
-		let status = await mongooseAsync(this.kitty)('save')
+		let status = await mongooseAsync.save(this.kitty)
 	}
 }
 
